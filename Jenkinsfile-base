@@ -8,10 +8,9 @@ node('master') {
   // a basic build number so that when we build and push to Artifactory we will not overwrite our previous builds
   String buildNumber = "0.1.${env.BUILD_NUMBER}"
   // Path we will mount the project to for the Docker container
-  String goPath = "/go/src/github.com/puzzledvacuum/${applicationName}"
-  // Custom workspace
-  customWorkspace '${goPath}'
-
+  //String goPath = "/go/src/github.com/puzzledvacuum/${applicationName}"
+  String goPath = "/var/jenkins_home/workspace/go-cross-compile-example"
+  
   // Checkout the code from Github, stages allow Jenkins to visualize the different sections of your build steps in the UI
   stage('Checkout from GitHub') {
     // No special needs here, if your projects relys on submodules the checkout step would need to be different
