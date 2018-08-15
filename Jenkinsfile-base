@@ -9,6 +9,8 @@ node('master') {
   String buildNumber = "0.1.${env.BUILD_NUMBER}"
   // Path we will mount the project to for the Docker container
   String goPath = "/go/src/github.com/puzzledvacuum/${applicationName}"
+  // Custom workspace
+  customWorkspace '${goPath}'
 
   // Checkout the code from Github, stages allow Jenkins to visualize the different sections of your build steps in the UI
   stage('Checkout from GitHub') {
